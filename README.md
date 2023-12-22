@@ -22,3 +22,18 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+やること
+* indexページのarticleの動的描画
+  * 〇dbにサンプル挿入
+  * 〇それを描画
+  * タグは一つのみ
+  * 作成日
+  * いいね数はランダム
+
+* newページ
+  * newページのarticleのcreate
+
+
+* (xやらない)タグは配列にして描画時にイテレートして描画させる
+

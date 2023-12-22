@@ -29,6 +29,7 @@
     </div>
   </div>
 
+
   <div class="container page">
     <div class="row">
       <div class="col-md-9">
@@ -42,6 +43,52 @@
             </li>
           </ul>
         </div>
+
+
+<!--動的描画 -->
+<%
+=begin%>
+ <div>
+  <% @articles.each do |article| %>
+    <h2><%= article.title%></h2>
+    <h3><%= article.author%></h3>
+    <h3><%= article.tag%></h3>
+    <p><%= article.content %></p>
+  <% end %>
+</div> 
+<%
+=end%>
+<%
+=begin%>
+ 記事の著者
+タグ
+記事の内容 
+<%
+=end%>
+
+  <% @articles.each do |article| %>
+        <div class="article-preview">
+          <div class="article-meta">
+            <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+            <div class="info">
+              <a href="/profile/eric-simons" class="author"><%= article.author %></a>
+              <span class="date"><%= article.created_at.strftime('%Y/%m/%d') %></span>
+            </div>
+            <button class="btn btn-outline-primary btn-sm pull-xs-right">
+              <i class="ion-heart"></i> <%= rand(1..100) %>
+            </button>
+          </div>
+          <a href="/article/how-to-build-webapps-that-scale" class="preview-link">
+            <h1><%= article.title%></h1>
+            <p><%= article.content %></p>
+            <span>Read more...</span>
+            <ul class="tag-list">
+              <li class="tag-default tag-pill tag-outline"><%= article.tag%></li>
+            </ul>
+          </a>
+        </div>
+
+
 
         <div class="article-preview">
           <div class="article-meta">
@@ -87,6 +134,9 @@
           </a>
         </div>
 
+<% end %>
+
+
         <ul class="pagination">
           <li class="page-item active">
             <a class="page-link" href="">1</a>
@@ -116,6 +166,7 @@
     </div>
   </div>
 </div>
+
 
 <%= render "layouts/footer"%>
 

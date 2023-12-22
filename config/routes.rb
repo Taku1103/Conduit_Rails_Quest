@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "conduit#index"
+  root "articles#index"
 
-  resources :conduit
+  resources :articles
+  resources :users
 end
