@@ -30,6 +30,10 @@
   </div>
 
 
+  <% flash.each do |message_type, message| %>
+    <%= message %>
+  <% end %>
+
   <div class="container page">
     <div class="row">
       <div class="col-md-9">
@@ -69,23 +73,26 @@
   <% @articles.each do |article| %>
         <div class="article-preview">
           <div class="article-meta">
+
             <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
             <div class="info">
-              <a href="/profile/eric-simons" class="author"><%= article.author %></a>
+
+              <a href="/profile/eric-simons" class="author"> <%= article.author %> </a>
               <span class="date"><%= article.created_at.strftime('%Y/%m/%d') %></span>
             </div>
             <button class="btn btn-outline-primary btn-sm pull-xs-right">
-              <i class="ion-heart"></i> <%= rand(1..100) %>
+              <i class="ion-heart"></i> <%= rand(0..100) %>
             </button>
           </div>
-          <a href="/article/how-to-build-webapps-that-scale" class="preview-link">
+
+          <%= link_to article_path(article.id) , class: "preview-link" do %>
             <h1><%= article.title%></h1>
             <p><%= article.content %></p>
             <span>Read more...</span>
             <ul class="tag-list">
-              <li class="tag-default tag-pill tag-outline"><%= article.tag%></li>
+              <li class="tag-default tag-pill tag-outline"><%= article.tag %></li>
             </ul>
-          </a>
+          <% end %>
         </div>
 
 

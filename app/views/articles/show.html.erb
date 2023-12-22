@@ -1,39 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <title>Conduit</title>
+  <!-- Import Ionicon icons & Google Fonts our Bootstrap theme relies on -->
+  <link
+    href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <link
+    href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic"
+    rel="stylesheet"
+    type="text/css"
+  />
+  <!-- Import the custom Bootstrap 4 theme from our hosted CDN -->
+  <link rel="stylesheet" href="//demo.productionready.io/main.css" />
 </head>
+
 <body>
   <%= render "layouts/header"%>
 
   <div class="article-page">
   <div class="banner">
     <div class="container">
-      <h1>How to build webapps that scale</h1>
+      <h1><%= @article.title %></h1>
 
       <div class="article-meta">
         <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
         <div class="info">
-          <a href="/profile/eric-simons" class="author">Eric Simons</a>
-          <span class="date">January 20th</span>
+          <a href="/profile/eric-simons" class="author"><%= @article.author %></a>
+          <span class="date"><%= @article.created_at.strftime('%Y/%m/%d') %></span>
         </div>
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-plus-round"></i>
-          &nbsp; Follow Eric Simons <span class="counter">(10)</span>
+          &nbsp; Follow <%= @article.author %> <span class="counter"><%= rand(0..100) %></span>
         </button>
         &nbsp;&nbsp;
         <button class="btn btn-sm btn-outline-primary">
           <i class="ion-heart"></i>
-          &nbsp; Favorite Post <span class="counter">(29)</span>
+          &nbsp; Favorite Post <span class="counter"><%= rand(0..100) %></span>
         </button>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="ion-edit"></i> Edit Article
-        </button>
-        <button class="btn btn-sm btn-outline-danger">
-          <i class="ion-trash-a"></i> Delete Article
-        </button>
+
+        &nbsp;&nbsp;
+        <%= link_to edit_article_path, class: 'edit btn btn-sm btn-outline-secondary' do %>
+          <i class="ion-edit"></i>
+          &nbsp; Edit Article
+        <% end %>
+
+        &nbsp;&nbsp;
+        <%= link_to article_path, data: { turbo_method: :delete , turbo_confirm: '本当に削除していいですか?' } , class: 'delete btn btn-sm btn-outline-danger' do %>
+          <i class="ion-trash-a"></i>
+          &nbsp; Delete Article
+        <% end %>
       </div>
     </div>
   </div>
@@ -42,13 +61,16 @@
     <div class="row article-content">
       <div class="col-md-12">
         <p>
-          Web development technologies have evolved at an incredible clip over the past few years.
+          <%= @article.content %>
         </p>
-        <h2 id="introducing-ionic">Introducing RealWorld.</h2>
-        <p>It's a great solution for learning how other frameworks work.</p>
+        <%
+=begin%>
+ <h2 id="introducing-ionic">Introducing RealWorld.</h2>
+        <p>It's a great solution for learning how other frameworks work.</p> 
+<%
+=end%>
         <ul class="tag-list">
-          <li class="tag-default tag-pill tag-outline">realworld</li>
-          <li class="tag-default tag-pill tag-outline">implementations</li>
+          <li class="tag-default tag-pill tag-outline"><%= @article.tag %></li>
         </ul>
       </div>
     </div>
@@ -59,13 +81,13 @@
       <div class="article-meta">
         <a href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
         <div class="info">
-          <a href="" class="author">Eric Simons</a>
-          <span class="date">January 20th</span>
+          <a href="" class="author"><%= @article.author %></a>
+          <span class="date"><%= @article.created_at.strftime('%Y/%m/%d') %></span>
         </div>
 
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-plus-round"></i>
-          &nbsp; Follow Eric Simons
+          &nbsp; Follow <%= @article.author %>
         </button>
         &nbsp;
         <button class="btn btn-sm btn-outline-primary">
@@ -130,6 +152,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
   <%= render "layouts/footer"%>
