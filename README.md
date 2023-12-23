@@ -43,5 +43,8 @@ Things you may want to cover:
   * 〇update
 * new,editとフォーム共通化
 
+* test環境整える(minitest install,migrate)
+
+
 * (xやらない)タグは配列にして描画時にイテレートして描画させる
 
