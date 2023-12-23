@@ -63,45 +63,48 @@
         <p>
           <%= @article.content %>
         </p>
-        <%
-=begin%>
- <h2 id="introducing-ionic">Introducing RealWorld.</h2>
-        <p>It's a great solution for learning how other frameworks work.</p> 
-<%
-=end%>
+
         <ul class="tag-list">
           <li class="tag-default tag-pill tag-outline"><%= @article.tag %></li>
         </ul>
       </div>
     </div>
 
-    <hr />
+  <div class="article-page">
+    <div class="container">
 
-    <div class="article-actions">
+
       <div class="article-meta">
-        <a href="profile.html"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+        <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
         <div class="info">
-          <a href="" class="author"><%= @article.author %></a>
+          <a href="/profile/eric-simons" class="author"><%= @article.author %></a>
           <span class="date"><%= @article.created_at.strftime('%Y/%m/%d') %></span>
         </div>
-
         <button class="btn btn-sm btn-outline-secondary">
           <i class="ion-plus-round"></i>
-          &nbsp; Follow <%= @article.author %>
+          &nbsp; Follow <%= @article.author %> <span class="counter"><%= rand(0..100) %></span>
         </button>
-        &nbsp;
+        &nbsp;&nbsp;
         <button class="btn btn-sm btn-outline-primary">
           <i class="ion-heart"></i>
-          &nbsp; Favorite Article <span class="counter">(29)</span>
+          &nbsp; Favorite Post <span class="counter"><%= rand(0..100) %></span>
         </button>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="ion-edit"></i> Edit Article
-        </button>
-        <button class="btn btn-sm btn-outline-danger">
-          <i class="ion-trash-a"></i> Delete Article
-        </button>
+
+        &nbsp;&nbsp;
+        <%= link_to edit_article_path, class: 'edit btn btn-sm btn-outline-secondary' do %>
+          <i class="ion-edit"></i>
+          &nbsp; Edit Article
+        <% end %>
+
+        &nbsp;&nbsp;
+        <%= link_to article_path, data: { turbo_method: :delete , turbo_confirm: '本当に削除していいですか?' } , class: 'delete btn btn-sm btn-outline-danger' do %>
+          <i class="ion-trash-a"></i>
+          &nbsp; Delete Article
+        <% end %>
       </div>
     </div>
+  </div>
+
 
     <div class="row">
       <div class="col-xs-12 col-md-8 offset-md-2">

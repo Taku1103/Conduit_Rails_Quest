@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
     else
       flash.now[:danger] = "article did Not created"
       logger.debug @article.errors.full_messages
-      render "articles/new"
+      render "articles/new" , status: :unprocessable_entity
     end
   end
 
@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     else
       flash.now[:danger] = "article did Not edited"
-      render "articles/edit"
+      render "articles/edit", status: :unprocessable_entity
     end
   end
 

@@ -30,18 +30,15 @@
   </div>
 
 
-  <% flash.each do |message_type, message| %>
-    <%= message %>
-  <% end %>
 
   <div class="container page">
     <div class="row">
       <div class="col-md-9">
+        <% flash.each do |message_type, message| %>
+          <%= message %>
+        <% end %>
         <div class="feed-toggle">
           <ul class="nav nav-pills outline-active">
-            <li class="nav-item">
-              <a class="nav-link" href="">Your Feed</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link active" href="">Global Feed</a>
             </li>
@@ -49,26 +46,7 @@
         </div>
 
 
-<!--動的描画 -->
-<%
-=begin%>
- <div>
-  <% @articles.each do |article| %>
-    <h2><%= article.title%></h2>
-    <h3><%= article.author%></h3>
-    <h3><%= article.tag%></h3>
-    <p><%= article.content %></p>
-  <% end %>
-</div> 
-<%
-=end%>
-<%
-=begin%>
- 記事の著者
-タグ
-記事の内容 
-<%
-=end%>
+
 
   <% @articles.each do |article| %>
         <div class="article-preview">
@@ -93,52 +71,6 @@
               <li class="tag-default tag-pill tag-outline"><%= article.tag %></li>
             </ul>
           <% end %>
-        </div>
-
-
-
-        <div class="article-preview">
-          <div class="article-meta">
-            <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
-            <div class="info">
-              <a href="/profile/eric-simons" class="author">Eric Simons</a>
-              <span class="date">January 20th</span>
-            </div>
-            <button class="btn btn-outline-primary btn-sm pull-xs-right">
-              <i class="ion-heart"></i> 29
-            </button>
-          </div>
-          <a href="/article/how-to-build-webapps-that-scale" class="preview-link">
-            <h1>How to build webapps that scale</h1>
-            <p>This is the description for the post.</p>
-            <span>Read more...</span>
-            <ul class="tag-list">
-              <li class="tag-default tag-pill tag-outline">realworld</li>
-              <li class="tag-default tag-pill tag-outline">implementations</li>
-            </ul>
-          </a>
-        </div>
-
-        <div class="article-preview">
-          <div class="article-meta">
-            <a href="/profile/albert-pai"><img src="http://i.imgur.com/N4VcUeJ.jpg" /></a>
-            <div class="info">
-              <a href="/profile/albert-pai" class="author">Albert Pai</a>
-              <span class="date">January 20th</span>
-            </div>
-            <button class="btn btn-outline-primary btn-sm pull-xs-right">
-              <i class="ion-heart"></i> 32
-            </button>
-          </div>
-          <a href="/article/the-song-you" class="preview-link">
-            <h1>The song you won't ever stop singing. No matter how hard you try.</h1>
-            <p>This is the description for the post.</p>
-            <span>Read more...</span>
-            <ul class="tag-list">
-              <li class="tag-default tag-pill tag-outline">realworld</li>
-              <li class="tag-default tag-pill tag-outline">implementations</li>
-            </ul>
-          </a>
         </div>
 
 <% end %>

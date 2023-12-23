@@ -61,3 +61,5 @@ Things you may want to cover:
 * (xやらない)タグは配列にして描画時にイテレートして描画させる
 
 * 画面遷移にプロフ画像がデカく表示される local
+* ページネーション
+* popular tags
