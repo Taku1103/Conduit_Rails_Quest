@@ -55,25 +55,23 @@ Things you may want to cover:
   * 〇users showページ,newページ,createアクション
   * 〇作成時のflash
 
-* users-articles　テーブルを多対多で結びつけて中間テーブルを作る
+* user-articles　テーブルを1対多で結びつける
 * 記事とのリンク
 * 記事のユーザー押したときのページ遷移
 
 
 * 〇users
-  * userのedit,delete権限
 * 〇log-in
-  * 〇一時セッション
-  * 永続セッション
-  * クッキーで永続する？
-* ヘッダーログイン時で表示切替
+* 〇ヘッダーログイン時で表示切替
 * 〇log-out
+* 〇一時セッション
+* 永続セッション
+* userのedit,delete権限(認可)
+現状URLを打てばアクセス色々出来る
 
-
-* 〇画面遷移にプロフ画像がデカく表示される local
-  renderの描画を小分けにしたりすると上手くいった
+* 〇画面遷移にプロフ画像がデカく表示される
 * ページネーション
-* popular tags
 
 * (xやらない)タグは配列にして描画時にイテレートして描画させる
 * (xやらない)
+* popular tags
