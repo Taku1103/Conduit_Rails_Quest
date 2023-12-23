@@ -14,10 +14,11 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-    flash[:success] = "article created!"
-    redirect_to articles_path
+      flash[:success] = "article created!"
+      redirect_to articles_path
     else
-      flash.now[:danger] = "article did Not create"
+      flash.now[:danger] = "article did Not created"
+      logger.debug @article.errors.full_messages
       render "articles/new"
     end
   end
@@ -28,8 +29,7 @@ class ArticlesController < ApplicationController
 
   def update
     @article = Article.find(params[:id])
-    if @article.save
-      @article.update(article_params)
+    if @article.update(article_params)
       flash[:success] = "article edited!"
       redirect_to articles_path
     else
