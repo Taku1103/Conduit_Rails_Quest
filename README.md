@@ -41,9 +41,10 @@ Things you may want to cover:
   * 〇showページでdelete
   * 〇showページでeditページ遷移
   * 〇update
-* new,editとフォーム共通化
+* 〇new,editとフォーム共通化
 
-* test環境整える(minitest install,migrate)
+* 〇test環境整える(minitest install,migrate)
+* users-articles　テーブルを多対多で結びつけて中間テーブルを作る
 
 
 * (xやらない)タグは配列にして描画時にイテレートして描画させる
