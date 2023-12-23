@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <title>Conduit</title>
-  <!-- Import Ionicon icons & Google Fonts our Bootstrap theme relies on -->
-  <link
-    href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <link
-    href="//fonts.googleapis.com/css?family=Titillium+Web:700|Source+Serif+Pro:400,700|Merriweather+Sans:400,700|Source+Sans+Pro:400,300,600,700,300italic,400italic,600italic,700italic"
-    rel="stylesheet"
-    type="text/css"
-  />
-  <!-- Import the custom Bootstrap 4 theme from our hosted CDN -->
-  <link rel="stylesheet" href="//demo.productionready.io/main.css" />
-</head>
-
-<body>
-  <%= render "layouts/header"%>
-
-  <div class="article-page">
+<div class="article-page">
   <div class="banner">
     <div class="container">
       <h1><%= @article.title %></h1>
@@ -32,17 +9,7 @@
           <a href="/profile/eric-simons" class="author"><%= @article.author %></a>
           <span class="date"><%= @article.created_at.strftime('%Y/%m/%d') %></span>
         </div>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="ion-plus-round"></i>
-          &nbsp; Follow <%= @article.author %> <span class="counter"><%= rand(0..100) %></span>
-        </button>
-        &nbsp;&nbsp;
-        <button class="btn btn-sm btn-outline-primary">
-          <i class="ion-heart"></i>
-          &nbsp; Favorite Post <span class="counter"><%= rand(0..100) %></span>
-        </button>
 
-        &nbsp;&nbsp;
         <%= link_to edit_article_path, class: 'edit btn btn-sm btn-outline-secondary' do %>
           <i class="ion-edit"></i>
           &nbsp; Edit Article
@@ -69,96 +36,6 @@
         </ul>
       </div>
     </div>
-
-  <div class="article-page">
-    <div class="container">
-
-
-      <div class="article-meta">
-        <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
-        <div class="info">
-          <a href="/profile/eric-simons" class="author"><%= @article.author %></a>
-          <span class="date"><%= @article.created_at.strftime('%Y/%m/%d') %></span>
-        </div>
-        <button class="btn btn-sm btn-outline-secondary">
-          <i class="ion-plus-round"></i>
-          &nbsp; Follow <%= @article.author %> <span class="counter"><%= rand(0..100) %></span>
-        </button>
-        &nbsp;&nbsp;
-        <button class="btn btn-sm btn-outline-primary">
-          <i class="ion-heart"></i>
-          &nbsp; Favorite Post <span class="counter"><%= rand(0..100) %></span>
-        </button>
-
-        &nbsp;&nbsp;
-        <%= link_to edit_article_path, class: 'edit btn btn-sm btn-outline-secondary' do %>
-          <i class="ion-edit"></i>
-          &nbsp; Edit Article
-        <% end %>
-
-        &nbsp;&nbsp;
-        <%= link_to article_path, data: { turbo_method: :delete , turbo_confirm: '本当に削除していいですか?' } , class: 'delete btn btn-sm btn-outline-danger' do %>
-          <i class="ion-trash-a"></i>
-          &nbsp; Delete Article
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-
-    <div class="row">
-      <div class="col-xs-12 col-md-8 offset-md-2">
-        <form class="card comment-form">
-          <div class="card-block">
-            <textarea class="form-control" placeholder="Write a comment..." rows="3"></textarea>
-          </div>
-          <div class="card-footer">
-            <img src="http://i.imgur.com/Qr71crq.jpg" class="comment-author-img" />
-            <button class="btn btn-sm btn-primary">Post Comment</button>
-          </div>
-        </form>
-
-        <div class="card">
-          <div class="card-block">
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional content.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="/profile/author" class="comment-author">
-              <img src="http://i.imgur.com/Qr71crq.jpg" class="comment-author-img" />
-            </a>
-            &nbsp;
-            <a href="/profile/jacob-schmidt" class="comment-author">Jacob Schmidt</a>
-            <span class="date-posted">Dec 29th</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-block">
-            <p class="card-text">
-              With supporting text below as a natural lead-in to additional content.
-            </p>
-          </div>
-          <div class="card-footer">
-            <a href="/profile/author" class="comment-author">
-              <img src="http://i.imgur.com/Qr71crq.jpg" class="comment-author-img" />
-            </a>
-            &nbsp;
-            <a href="/profile/jacob-schmidt" class="comment-author">Jacob Schmidt</a>
-            <span class="date-posted">Dec 29th</span>
-            <span class="mod-options">
-              <i class="ion-trash-a"></i>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>
-
-  <%= render "layouts/footer"%>
-
-</body>
-</html>
