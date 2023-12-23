@@ -7,19 +7,24 @@
           <a href="/register">Need an account?</a>
         </p>
 
-        <ul class="error-messages">
-          <li>That email is already taken</li>
-        </ul>
+        <% flash.each do |message_type, message| %>
+          <%= message %>
+        <% end %>
 
-        <form>
-          <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Email" />
-          </fieldset>
-          <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="password" placeholder="Password" />
-          </fieldset>
-          <button class="btn btn-lg btn-primary pull-xs-right">Sign in</button>
-        </form>
+
+        <%= form_with(url: login_path, scope: :session) do |f| %>
+        <fieldset>
+        <fieldset class="form-group">
+            <%= f.text_field  :email, class: 'form-control form-control-lg' , placeholder: "Email"%>
+        </fieldset>
+        <fieldset class="form-group">
+            <%= f.text_field :password, class: 'form-control form-control-lg' , placeholder: "Password"%>
+        </fieldset>
+        <fieldset>
+            <%= f.submit "Sign in", class: "btn btn-lg pull-xs-right btn-primary" %>
+        </fieldset>
+        <% end %>
+
       </div>
     </div>
   </div>

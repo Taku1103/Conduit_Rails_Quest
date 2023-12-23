@@ -7,22 +7,33 @@
           <a href="/login">Have an account?</a>
         </p>
 
+        <% flash.each do |message_type, message| %>
+          <%= message %>
+        <% end %>
+
         <ul class="error-messages">
-          <li>That email is already taken</li>
+            <%= render "shared/error_messages" , obj: @user %>
         </ul>
 
-        <form>
-          <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Username" />
-          </fieldset>
-          <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="text" placeholder="Email" />
-          </fieldset>
-          <fieldset class="form-group">
-            <input class="form-control form-control-lg" type="password" placeholder="Password" />
-          </fieldset>
-          <button class="btn btn-lg btn-primary pull-xs-right">Sign up</button>
-        </form>
+
+    <%= form_with(model: @user, local: true) do |f| %>
+    <fieldset>
+    <fieldset class="form-group">
+        <%= f.text_field :name, class: 'form-control form-control-lg' , placeholder: "Username"%>
+    </fieldset>
+    <fieldset class="form-group">
+    <%= f.text_field  :email, class: 'form-control form-control-lg' , placeholder: "Email"%>
+    </fieldset>
+    <fieldset class="form-group">
+    <%= f.text_field :password, class: 'form-control form-control-lg' , placeholder: "Password"%>
+    </fieldset>
+    <fieldset class="form-group">
+    <%= f.text_field :password_confirmation, class: 'form-control form-control-lg' , placeholder: "Password_Confirm"%>
+    </fieldset>
+    <%= f.submit "Sign up", class: "btn btn-lg pull-xs-right btn-primary" %>
+    </fieldset>
+    <% end %>
+
       </div>
     </div>
   </div>

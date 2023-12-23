@@ -45,21 +45,35 @@ Things you may want to cover:
 
 * 〇test環境整える(minitest install,migrate)
 
-* validation記事の
+* 〇article validation
 
 
-* usersのモデル作って
+* 〇users
+  * 〇モデル作成
+  * 〇secureなパスワード
+  * 〇users バリデーション
+  * 〇users showページ,newページ,createアクション
+  * 〇作成時のflash
+
 * users-articles　テーブルを多対多で結びつけて中間テーブルを作る
+* 記事とのリンク
+* 記事のユーザー押したときのページ遷移
 
-* users
+
+* 〇users
   * userのedit,delete権限
-* log-in
+* 〇log-in
+  * 〇一時セッション
   * 永続セッション
   * クッキーで永続する？
-* log-out
+* ヘッダーログイン時で表示切替
+* 〇log-out
 
-* (xやらない)タグは配列にして描画時にイテレートして描画させる
 
-* 画面遷移にプロフ画像がデカく表示される local
+* 〇画面遷移にプロフ画像がデカく表示される local
+  renderの描画を小分けにしたりすると上手くいった
 * ページネーション
 * popular tags
+
+* (xやらない)タグは配列にして描画時にイテレートして描画させる
+* (xやらない)

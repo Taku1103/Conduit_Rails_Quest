@@ -3,18 +3,29 @@
     <a class="navbar-brand" href="/">conduit</a>
     <ul class="nav navbar-nav pull-xs-right">
       <li class="nav-item">
-        <!-- Add "active" class when you're on that page" -->
         <a class="nav-link active" href="/">Home</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/articles/new">Create Article</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/login">Sign in</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/register">Sign up</a>
-      </li>
+
+      <% if logged_in? %>
+        <li class="nav-item"><%= link_to "Your Profile", current_user , class:"nav-link" %></li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/articles/new">Create Article</a>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } , class:"nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Sign up</a>
+        </li>
+      <% end %>
+
+
     </ul>
   </div>
 </nav>
