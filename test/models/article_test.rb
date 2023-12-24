@@ -16,10 +16,6 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not @article.valid?
   end
 
-  test "author should be present" do
-    @article.author = ""
-    assert_not @article.valid?
-  end
 
   test "content should be present" do
     @article.content = ""
@@ -33,11 +29,6 @@ class ArticleTest < ActiveSupport::TestCase
 
   test "content should not be too long" do
     @article.content = "a" * 2001
-    assert_not @article.valid?
-  end
-
-  test "author should not be too long" do
-    @article.author = "a" * 51
     assert_not @article.valid?
   end
 

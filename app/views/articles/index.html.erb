@@ -26,8 +26,7 @@
 
             <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
             <div class="info">
-              ここlink to でユーザーのprofileページに飛ぶ
-              <a href="/profile/eric-simons" class="author"> <%= article.user %> </a>
+              <%= link_to "#{article.user.name}" , user_path(article.user.id), class: "author" %>
               <span class="date"><%= article.created_at.strftime('%Y/%m/%d') %></span>
             </div>
             <button class="btn btn-outline-primary btn-sm pull-xs-right">

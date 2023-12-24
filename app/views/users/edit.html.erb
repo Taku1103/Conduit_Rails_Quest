@@ -13,11 +13,12 @@
         </ul>
 
 
-<%= form_with(model: @user, local: true) do |f| %>
+  <%= form_with(model: @user, local: true) do |f| %>
     <fieldset>
     <fieldset class="form-group">
         <%= f.text_field :name, class: 'form-control form-control-lg' , placeholder: "Your Name"%>
     </fieldset>
+
     <%
 =begin%>
  <fieldset class="form-group">
@@ -36,14 +37,8 @@
     </fieldset>
     <%= f.submit "Update Settings", class: "btn btn-lg pull-xs-right btn-primary" %>
     </fieldset>
-<% end %>
+  <% end %>
 
-
-
-
-
-        <hr />
-        <button class="btn btn-outline-danger">Or click here to logout.</button>
       </div>
     </div>
   </div>

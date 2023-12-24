@@ -4,12 +4,13 @@
       <h1><%= @article.title %></h1>
 
       <div class="article-meta">
-        <a href="/profile/eric-simons"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
+        <a href="<%= user_path(@article.user.id) %>"><img src="http://i.imgur.com/Qr71crq.jpg" /></a>
         <div class="info">
-          <a href="/profile/eric-simons" class="author"><%= @article.author %></a>
+          <%= link_to "#{@article.user.name}" , user_path(@article.user.id), class: "author" %>
           <span class="date"><%= @article.created_at.strftime('%Y/%m/%d') %></span>
         </div>
 
+      <% if @article.user == current_user %>
         <%= link_to edit_article_path, class: 'edit btn btn-sm btn-outline-secondary' do %>
           <i class="ion-edit"></i>
           &nbsp; Edit Article
@@ -20,6 +21,8 @@
           <i class="ion-trash-a"></i>
           &nbsp; Delete Article
         <% end %>
+      <% else %>
+      <% end %>
       </div>
     </div>
   </div>
