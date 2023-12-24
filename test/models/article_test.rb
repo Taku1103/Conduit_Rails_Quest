@@ -3,7 +3,8 @@ require "test_helper"
 class ArticleTest < ActiveSupport::TestCase
 
   def setup
-    @article = Article.new(title:"test_title", author: "testman_yoshi", tag: "exam_tag", content: "unko_buriburi")
+    @user = users(:michael)
+    @article = @user.articles.build(user_id: @user.id, title:"test_title", author: "testman_yoshi", tag: "exam_tag", content: "unko_buriburi")
   end
 
   test "article should be valid" do
@@ -40,5 +41,7 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not @article.valid?
   end
 
-
+  test "order should be most recent first" do
+    assert_equal articles(:most_recent), Article.first
+  end
 end
