@@ -20,6 +20,10 @@
         <fieldset class="form-group">
             <%= f.text_field :password, class: 'form-control form-control-lg' , placeholder: "Password"%>
         </fieldset>
+        <%= f.label :remember_me, class: "form-group" do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember me on this computer</span>
+        <% end %>
         <fieldset>
             <%= f.submit "Sign in", class: "btn btn-lg pull-xs-right btn-primary" %>
         </fieldset>
