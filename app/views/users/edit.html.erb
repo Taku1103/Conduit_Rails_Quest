@@ -1,0 +1,50 @@
+<div class="settings-page">
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 col-xs-12">
+        <h1 class="text-xs-center">Your Settings</h1>
+
+        <% flash.each do |message_type, message| %>
+          <%= message %>
+        <% end %>
+
+        <ul class="error-messages">
+            <%= render "shared/error_messages" , obj: @user %>
+        </ul>
+
+
+<%= form_with(model: @user, local: true) do |f| %>
+    <fieldset>
+    <fieldset class="form-group">
+        <%= f.text_field :name, class: 'form-control form-control-lg' , placeholder: "Your Name"%>
+    </fieldset>
+    <%
+=begin%>
+ <fieldset class="form-group">
+    <%= f.text_area  :bio, class: 'form-control form-control-lg' , placeholder: "Short bio about you", rows:"8"%>
+    </fieldset> 
+<%
+=end%>
+    <fieldset class="form-group">
+    <%= f.text_field :email, class: 'form-control form-control-lg' , placeholder: "Email"%>
+    </fieldset>
+    <fieldset class="form-group">
+    <%= f.text_field :password, class: 'form-control form-control-lg' , placeholder: "password"%>
+    </fieldset>
+    <fieldset class="form-group">
+    <%= f.text_field :password_confirm, class: 'form-control form-control-lg' , placeholder: "password_confirm"%>
+    </fieldset>
+    <%= f.submit "Update Settings", class: "btn btn-lg pull-xs-right btn-primary" %>
+    </fieldset>
+<% end %>
+
+
+
+
+
+        <hr />
+        <button class="btn btn-outline-danger">Or click here to logout.</button>
+      </div>
+    </div>
+  </div>
+</div>
