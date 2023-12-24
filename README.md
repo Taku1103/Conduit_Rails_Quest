@@ -61,6 +61,7 @@ Things you may want to cover:
 * 〇log-out
 * 〇一時セッション
 * 〇永続セッション
+* 〇user情報の変更
 * userのedit,delete権限(認可)
 現状URLを打てばアクセス色々出来る
 

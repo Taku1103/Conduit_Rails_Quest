@@ -49,6 +49,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :tag, :author, :content)
+    params.require(:article).permit(:title, :tag, :author, :content) # author削除予定
   end
 end
