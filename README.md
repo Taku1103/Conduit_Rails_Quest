@@ -24,8 +24,8 @@ Conduitは Medium.com のクローンの記事投稿サイトです。
 
 * ユーザー認証処理
   * ヘッダーの ログイン時で表示切替
-  * 認証による描画制限(他userのarticleに対するedit,deleteボタン)
-  * 認証による接続制限(他userへのeditページ遷移)
+  * 認可による描画制限(他userのarticleに対するedit,deleteボタン)
+  * 認可による接続制限(他userへのeditページ遷移)
 
 * テストコード
   * 各バリデーション
